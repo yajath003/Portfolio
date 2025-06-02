@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yajath Kandregula - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">▲▼</div>
+    <nav>
+      <span id="menuToggle">Menu</span>
+      <a href="mailto:yajathkandregula@example.com" style="color: inherit; text-decoration: none;">Hire Me</a>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="social-icons">
+          <a href="https://github.com/yajath003" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://www.linkedin.com/in/yajath-kandregula-664713300/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://leetcode.com/u/yajath003/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="width: 24px; height: 24px;">
+          </a>
+        </div>
+        <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+        <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+        <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+        <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+        <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+      </div>
+    </nav>
+  </header>
+  <section class="certificates" style="padding: 60px 100px; background-color: rgba(0,0,0,0.25); color: #e0e0e0;">
+  <center>
+    <h2 style="font-size: 2.5rem; color: #00ffff; margin-bottom: 50px; text-shadow: 0 0 10px #00ffff;">Certifications</h2>
+  </center>
+<!--    1-->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px; margin-right: 50px;">
+      <h3 style="color: #ff00cc;">GATE 2025 – Data Science and Artificial Intelligence</h3>
+      <p style="text-align: justify;">Qualified GATE 2025 in the Data Science and Artificial Intelligence stream. Demonstrated proficiency in core analytical and computational concepts.</p>
+    </div>
+    <a href="https://drive.google.com/file/d/15XnfqnvA-d2AUVOswNhD6pCOhFmFkF-Y/view?usp=sharing" target="_blank">
+      <img src="/static/images/gate2025.png" alt="GATE Certificate" style="width: 400px; border-radius: 10px; box-shadow: 0 0 15px #00ffff; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </a>
+  </div>
+
+<!--  2-->
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+    <div style="flex: 1; min-width: 300px; margin-left: 50px;">
+      <h3 style="color: #ff00cc;">NPTEL Practical Entrepreneurship</h3>
+      <p style="text-align: justify;">Workshop on startup ideation, MVP development, and business planning conducted by NPTEL+.</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1w0A10BBFUGsMZCjMaFs_XiCE6x1ijpif/view" target="_blank">
+      <img src="/static/images/pract.png" alt="NPTEL Entrepreneurship" style="width: 400px; border-radius: 10px; box-shadow: 0 0 15px #ff00cc; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </a>
+  </div>
+
+<!--  3-->
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px; margin-right: 50px;">
+      <h3 style="color: #ff00cc;">Industry 4.0 & IIoT</h3>
+      <p style="text-align: justify;">Completed “Introduction To Industry 4.0 and Industrial Internet of Things”, covering smart systems and automation concepts.</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1EroU3-ONQ07jPEafV9SIaDaU0oVPyDFk/view" target="_blank">
+      <img src="/static/images/indus4.0.png" alt="Industry 4.0 Certificate" style="width: 400px; border-radius: 10px; box-shadow: 0 0 15px #00ffff; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </a>
+  </div>
+
+<!--  4-->
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+    <div style="flex: 1; min-width: 300px; margin-left: 50px;">
+      <h3 style="color: #ff00cc;">Drone Simulation Workshop – ANITS</h3>
+      <p style="text-align: justify;">Hands-on experience on drone simulation and control conducted by the ECE Department, ANITS.</p>
+    </div>
+    <img src="/static/images/medal.png" alt="Drone Workshop" style="width: 200px; border-radius: 10px; box-shadow: 0 0 15px #ff00cc; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+  </div>
+
+<!--  5-->
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 300px; margin-right: 50px;">
+    <h3 style="color: #ff00cc;">AWS Cloud Computing</h3>
+    <p style="text-align: justify;">Participated in a workshop on Amazon Web Services (AWS), understanding cloud architecture, deployment, and services.</p>
+  </div>
+    <a href="https://drive.google.com/file/d/1UfC2eUr9sXKObRteAlS0lQWzavpqmlU-/view?usp=sharing" target="_blank">
+      <img src="/static/images/aws.png" alt="AWS Workshop" style="width: 400px; border-radius: 10px; box-shadow: 0 0 15px #ff00cc; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </a>
+</div>
+
+
+<!--  6-->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+  <div style="flex: 1; min-width: 300px; margin-left: 50px;">
+    <h3 style="color: #ff00cc;">Smart India Hackathon (SIH)</h3>
+    <p style="text-align: justify;">Participated in the SIH national level innovation challenge, contributing towards a real-world problem statement.</p>
+  </div>
+  <img src="/static/images/medal.png" alt="SIH Certificate" style="width: 200px; border-radius: 10px; box-shadow: 0 0 15px #00ffff; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+
+
+</section>
+<footer style="background: rgba(0, 0, 0, 0.4); padding: 30px 50px; color: #e0e0e0; text-align: center; font-size: 0.95rem; border-top: 1px solid #00ffff; margin-top: 80px;">
+    <p style="margin: 5px 0;"><strong>Contact Me:</strong></p>
+    <p style="margin: 5px 0;">📞 +91-8309758570</p>
+    <p style="margin: 5px 0;">📧 <a href="mailto:yajathkandregula@gmail.com" style="color: #00ffff; text-decoration: none;">yajathkandregula@gmail.com</a></p>
+    <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa;">
+      Designed and developed by Yajath Kandregula
+    </p>
+  </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    toggle.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

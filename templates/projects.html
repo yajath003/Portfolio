@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yajath Kandregula - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">▲▼</div>
+    <nav>
+      <span id="menuToggle">Menu</span>
+      <a href="mailto:yajathkandregula@example.com" style="color: inherit; text-decoration: none;">Hire Me</a>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="social-icons">
+          <a href="https://github.com/yajath003" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://www.linkedin.com/in/yajath-kandregula-664713300/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://leetcode.com/u/yajath003/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="width: 24px; height: 24px;">
+          </a>
+        </div>
+        <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+        <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+        <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+        <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+        <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="projects" style="padding: 60px 100px; background-color: rgba(0,0,0,0.25); color: #e0e0e0;">
+    <center>
+      <h2 style="font-size: 2.5rem; color: #00ffff; margin-bottom: 50px; text-shadow: 0 0 10px #00ffff;">Projects</h2>
+    </center>
+
+    <!-- Project 1 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; margin-right: 50px;">
+        <h3>
+          <a href="https://e-library-yo0w.onrender.com/">E-Library</a>&nbsp;&nbsp;
+          <a href="https://github.com/yajath003/E-Library" class="project-icon" target="_blank"><i class="bi bi-github"></i></a>
+        </h3>
+        <p style="text-align: justify;">
+          A web-based digital library platform enabling users to borrow, return, and manage books efficiently. Features role-based access for users and admins, Flask backend, and SQL database integration.
+        </p>
+      </div>
+      <a href="https://e-library-yo0w.onrender.com/"><img src="/static/images/elib.png" alt="E-Library Project" style="width: 400px; border-radius: 10px;"></a>
+    </div>
+
+    <!-- Project 2 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+      <div style="flex: 1; min-width: 300px; margin-left: 50px;">
+        <h3>
+          <a href="https://influencer-engagement-and-sponsorship-unin.onrender.com/">Influencer Engagement and Sponsorship Coordination Platform</a>&nbsp;&nbsp;
+          <a href="https://github.com/yajath003/Influencer-Engagement-and-Sponsorship-Coordination-platform" class="project-icon" target="_blank"><i class="bi bi-github"></i></a>
+        </h3>
+        <p style="text-align: justify;">
+          A sponsorship coordination system that connects influencers with sponsors. Built with Flask, SQLite, Jinja templates, and a custom dashboard for managing campaigns and collaborations.
+        </p>
+      </div>
+      <a href="https://influencer-engagement-and-sponsorship-unin.onrender.com/"><img src="/static/images/iescp.png" alt="Influencer Project" style="width: 400px; border-radius: 10px;"></a>
+    </div>
+
+    <!-- Project 3 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; margin-right: 50px;">
+        <h3>
+          <a href="https://airways-reservation.onrender.com/">Airway Reservation System</a>&nbsp;&nbsp;
+          <a href="https://github.com/yajath003/Airways-reservation" class="project-icon" target="_blank"><i class="bi bi-github"></i></a>
+        </h3>
+        <p style="text-align: justify;">
+          A flight reservation portal allowing users to book and manage flight seats. Developed using Flask and SQL, featuring role-based dashboards for users and administrators, and real-time seat availability.
+        </p>
+      </div>
+      <a href="https://airways-reservation.onrender.com/"><img src="/static/images/air.png" alt="Airway Reservation System" style="width: 400px; border-radius: 10px;"></a>
+    </div>
+
+    <!-- Project 4 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+      <div style="flex: 1; min-width: 300px; margin-left: 50px;">
+        <h3>
+          <a href="https://household-services-same.onrender.com/">Household Service Application</a>&nbsp;&nbsp;
+          <a href="https://github.com/yajath003/HOUSEHOLD-SERVICES" class="project-icon" target="_blank"><i class="bi bi-github"></i></a>
+        </h3>
+        <p style="text-align: justify;">
+          A web application for managing home-based services like plumbing, cleaning, and electrical repairs. Integrated with Flask, HTML/CSS, JavaScript, and Vue.js to provide a seamless user experience for clients and workers.
+        </p>
+      </div>
+      <a href="https://household-services-same.onrender.com/"><img src="/static/images/house.png" alt="Household Service Application" style="width: 400px; border-radius: 10px;"></a>
+    </div>
+  </section>
+<footer style="background: rgba(0, 0, 0, 0.4); padding: 30px 50px; color: #e0e0e0; text-align: center; font-size: 0.95rem; border-top: 1px solid #00ffff; margin-top: 80px;">
+    <p style="margin: 5px 0;"><strong>Contact Me:</strong></p>
+    <p style="margin: 5px 0;">📞 +91-8309758570</p>
+    <p style="margin: 5px 0;">📧 <a href="mailto:yajathkandregula@gmail.com" style="color: #00ffff; text-decoration: none;">yajathkandregula@gmail.com</a></p>
+    <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa;">
+      Designed and developed by Yajath Kandregula
+    </p>
+  </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    toggle.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
