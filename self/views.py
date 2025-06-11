@@ -186,6 +186,8 @@ def resume_upload():
             if resume_file and resume_file.filename != '':
                 image = resume_file.read()
                 resume_file.seek(0)
+            Resume.query.delete()
+            db.session.commit()
             res = Resume(
                 resume_file=image
             )
