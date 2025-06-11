@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yajath Kandregula - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .internship-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .internship-text {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+
+    .internship-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .internship-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff00cc, 0 0 50px #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .internship-container {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .internship-text {
+        margin: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">▲▼</div>
+  <nav>
+    <span id="menuToggle">Menu</span>
+    <a href="mailto:yajathkandregula@example.com" style="color: inherit; text-decoration: none;">Hire Me</a>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <div class="social-icons">
+        <a href="https://github.com/yajath003" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://www.linkedin.com/in/yajath-kandregula-664713300/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://leetcode.com/u/yajath003/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="width: 24px; height: 24px;">
+        </a>
+      </div>
+      <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+      <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+      <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+      <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+      <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+      <a href="{{url_for('self_app.creator_login')}}" class="dropdown-link">Creator</a>
+    </div>
+  </nav>
+</header>
+
+<section class="internship-section" style="padding: 60px 100px; background-color: rgba(0, 0, 0, 0.25);">
+  <center>
+    <h2 style="font-size: 2.5rem; color: #00ffff; margin-bottom: 50px; text-shadow: 0 0 10px #00ffff;">Internships</h2>
+  </center>
+
+  {% if works %}
+    {% for work, image in zip(works, images) %}
+      <div class="internship-container" style="{% if work.work_id % 2 == 0 %}flex-direction: row-reverse;{% endif %}">
+        <div class="internship-text">
+          <h3 style="color: #ff00cc; text-shadow: 0 0 5px #ff00cc;">{{ work.work_name }}</h3>
+          <p style="text-align: justify;">{{ work.work_description }}</p>
+        </div>
+        <a href="{{ work.drive_link }}">
+          <img src="data:image/jpeg;base64, {{ image }}" alt="{{ work.work_name }}" class="internship-img">
+        </a>
+      </div>
+    {% endfor %}
+  {% endif %}
+</section>
+
+<footer style="background: rgba(0, 0, 0, 0.4); padding: 30px 50px; color: #e0e0e0; text-align: center; font-size: 0.95rem; border-top: 1px solid #00ffff; margin-top: 80px;">
+  <p style="margin: 5px 0;"><strong>Contact Me:</strong></p>
+  <p style="margin: 5px 0;">📞 +91-8309758570</p>
+  <p style="margin: 5px 0;">📧 <a href="mailto:yajathkandregula@gmail.com" style="color: #00ffff; text-decoration: none;">yajathkandregula@gmail.com</a></p>
+  <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa;">
+    Designed and developed by Yajath Kandregula
+  </p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const dropdown = document.getElementById('dropdownMenu');
+
+  toggle.addEventListener('click', () => {
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  window.addEventListener('click', function(e) {
+    if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

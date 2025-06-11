@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yajath Kandregula - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">▲▼</div>
+    <nav>
+      <span id="menuToggle">Menu</span>
+      <a href="mailto:yajathkandregula@example.com" style="color: inherit; text-decoration: none;">Hire Me</a>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="social-icons">
+          <a href="https://github.com/yajath003" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://www.linkedin.com/in/yajath-kandregula-664713300/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://leetcode.com/u/yajath003/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="width: 24px; height: 24px;">
+          </a>
+        </div>
+        <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+        <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+        <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+        <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+        <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+        <a href="{{url_for('self_app.creator_login')}}" class="dropdown-link">Creator</a>
+      </div>
+    </nav>
+  </header>
+<section class="creator-section">
+    <h2>Add New</h2>
+    <div class="creator-grid">
+      <a href="{{url_for('self_app.projects_upload')}}"><div class="creator-card"><img src="/static/images/new_project.png" alt="New Project"><span>Project</span></div></a>
+      <a href="{{url_for('self_app.certification_upload')}}"><div class="creator-card"><img src="/static/images/new_certification.png" alt="New Certification"><span>Certification</span></div></a>
+      <a href="{{url_for('self_app.skill_upload')}}"><div class="creator-card"><img src="/static/images/new_skill.png" alt="New Skill"><span>Skill</span></div></a>
+      <a href="{{url_for('self_app.work_upload')}}"><div class="creator-card"><img src="/static/images/new_work.png" alt="New Work"><span>Work</span></div></a>
+<!--      <a href="{{url_for('self_app.education_upload')}}"><div class="creator-card"><img src="/static/images/new_education.png" alt="New Education"><span>Education</span></div></a>-->
+      <a href="{{url_for('self_app.resume_upload')}}"><div class="creator-card"><img src="/static/images/new_resume.png" alt="New Resume"><span>Resume</span></div></a>
+    </div>
+  </section>
+<footer style="background: rgba(0, 0, 0, 0.4); padding: 30px 50px; color: #e0e0e0; text-align: center; font-size: 0.95rem; border-top: 1px solid #00ffff; margin-top: 80px;">
+    <p style="margin: 5px 0;"><strong>Contact Me:</strong></p>
+    <p style="margin: 5px 0;">📞 +91-8309758570</p>
+    <p style="margin: 5px 0;">📧 <a href="mailto:yajathkandregula@gmail.com" style="color: #00ffff; text-decoration: none;">yajathkandregula@gmail.com</a></p>
+    <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa;">
+      Designed and developed by Yajath Kandregula
+    </p>
+  </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    toggle.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

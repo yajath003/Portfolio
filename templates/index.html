@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yajath Kandregula - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">▲▼</div>
+    <nav>
+      <span id="menuToggle">Menu</span>
+      <a href="mailto:yajathkandregula@example.com" style="color: inherit; text-decoration: none;">Hire Me</a>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="social-icons">
+          <a href="https://github.com/yajath003" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://www.linkedin.com/in/yajath-kandregula-664713300/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+          </a>
+          <a href="https://leetcode.com/u/yajath003/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="width: 24px; height: 24px;">
+          </a>
+        </div>
+        <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+        <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+        <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+        <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+        <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+        <a href="{{url_for('self_app.creator_login')}}" class="dropdown-link">Creator</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+  <h1>Hey, I'm <span class="highlight">Yajath</span>.</h1>
+  <p>An explorer of code, design, and ideas — on a mission to craft digital experiences that solve real-world problems.</p>
+</div>
+    <img src="/static/images/avatar2.gif" alt="Yajath Avatar" class="hero-img">
+  </section>
+
+  <!-- Education Section -->
+  <section class="education" style="padding: 60px 100px; background-color: rgba(0, 0, 0, 0.2); color: #e0e0e0;">
+    <center><h2 style="font-size: 2.5rem; color: #00ffff; margin-bottom: 30px; text-shadow: 0 0 10px #00ffff;">Education</h2></center><br>
+
+    <!-- IITM -->
+    <div style="display: flex; align-items: center; margin-bottom: 40px;">
+      <img src="/static/images/iitm.png" alt="IITM Logo" class="hover-glow" style="width: 250px; margin-right: 100px; border-radius: 10px; box-shadow: 0 0 15px #00ffff; margin-left: 150px">
+      <div>
+        <h3 style="color: #ff00cc; font-size: 1.5rem; margin-bottom: 5px;">Indian Institute of Technology Madras</h3>
+        <p style="margin: 5px 0;">B.Sc. in Data Science and Applications</p>
+        <p style="margin: 5px 0;"><strong>2023 – Present</strong></p>
+        <ul style="margin: 10px 0 0 18px;">
+          <li>Cleared: Foundation, Diploma in Programming</li>
+          <li>Ongoing: Diploma in Data Science</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Certificates -->
+    <div style="display: flex; justify-content: center; gap: 50px; margin-bottom: 60px;">
+      <img src="/static/images/foundation.png" alt="Foundation Certificate" class="hover-glow" style="width: 300px; border-radius: 8px; box-shadow: 0 0 10px #00ffff;">
+      <img src="/static/images/dip_prog.png" alt="Diploma in Programming Certificate" class="hover-glow" style="width: 300px; border-radius: 8px; box-shadow: 0 0 10px #ff00cc;">
+    </div>
+
+    <!-- ANITS -->
+    <div style="display: flex; align-items: center;">
+      <img src="/static/images/anits.jpg" alt="ANITS Logo" class="hover-glow" style="width: 250px; margin-right: 100px; border-radius: 10px; box-shadow: 0 0 15px #ff00cc; margin-left: 150px">
+      <div>
+        <h3 style="color: #ff00cc; font-size: 1.5rem; margin-bottom: 5px;">Anil Neerukonda Institute of Technology</h3>
+        <p style="margin: 5px 0;">B.Tech in Computer Science (AI and ML)</p>
+        <p style="margin: 5px 0;"><strong>2022 – 2026 (Expected)</strong></p>
+        <p style="margin: 5px 0;">CGPA: 8.85 (till now)</p>
+      </div>
+    </div>
+  </section>
+  <!-- Download Resume Section -->
+<section class="resume-download" style="padding: 60px 100px; background-color: rgba(0, 255, 255, 0.05); color: #e0e0e0; text-align: center;">
+  <h2 style="font-size: 2.5rem; color: #00ffff; margin-bottom: 20px; text-shadow: 0 0 12px #00ffff;">Download My Resume</h2>
+  <p style="margin-bottom: 30px; font-size: 1.1rem; color: #cccccc;">
+    Curious about my skills, experience, and projects? Download my resume to get the full picture!
+  </p>
+  {% if resume_available %}
+  <a href="{{ url_for('self_app.download_resume') }}" class="download-btn" style="
+    display: inline-block;
+    background: linear-gradient(90deg, #00ffff, #ff00cc);
+    padding: 15px 30px;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 0 20px #00ffff;
+    transition: all 0.3s ease;
+  ">
+    <i class="fas fa-download" style="margin-right: 10px;"></i>Download Resume
+  </a>
+{% else %}
+  <p style="color: #ff4d4d; font-weight: bold;">Resume currently not available.</p>
+{% endif %}
+</section>
+
+  <footer style="background: rgba(0, 0, 0, 0.4); padding: 30px 50px; color: #e0e0e0; text-align: center; font-size: 0.95rem; border-top: 1px solid #00ffff; margin-top: 80px;">
+    <p style="margin: 5px 0;"><strong>Contact Me:</strong></p>
+    <p style="margin: 5px 0;">📞 +91-8309758570</p>
+    <p style="margin: 5px 0;">📧 <a href="mailto:yajathkandregula@gmail.com" style="color: #00ffff; text-decoration: none;">yajathkandregula@gmail.com</a></p>
+    <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa;">
+      Designed and developed by Yajath Kandregula
+    </p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    toggle.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
