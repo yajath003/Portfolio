@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Project - Portfolio</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/jpg" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+</head>
+<body>
+  <header>
+    <div class="logo">▲▼</div>
+    <nav>
+      <span id="menuToggle">Menu</span>
+      <a
+        href="mailto:yajathkandregula@example.com"
+        style="color: inherit; text-decoration: none;"
+        >Hire Me</a
+      >
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="{{url_for('self_app.index')}}" class="dropdown-link">Home</a>
+        <a href="{{url_for('self_app.skills')}}" class="dropdown-link">Skills</a>
+        <a href="{{url_for('self_app.projects')}}" class="dropdown-link">Projects</a>
+        <a href="{{url_for('self_app.certification')}}" class="dropdown-link">Certifications</a>
+        <a href="{{url_for('self_app.work')}}" class="dropdown-link">Work</a>
+        <a href="{{url_for('self_app.creator')}}" class="dropdown-link">Creator</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="auth-container">
+    <h2 class="auth-title">✏️ Edit Project</h2>
+    <p class="auth-subtitle">Update details below</p>
+
+    <!-- Back Button -->
+    <button
+      type="button"
+      class="neon-button"
+      id="backButton"
+      style="margin-bottom: 20px;"
+    >
+      ← Back
+    </button>
+
+    <form id="projectForm" method="POST" enctype="multipart/form-data">
+      <!-- Project Name -->
+      <input
+        type="text"
+        name="project_name"
+        class="neon-input"
+        value="{{ project.project_name }}"
+        required
+      />
+
+      <!-- Description -->
+      <textarea
+        name="description"
+        class="neon-input"
+        rows="4"
+        required
+      >{{ project.project_description }}</textarea>
+
+      <!-- Live Demo -->
+      <input
+        type="url"
+        name="render_link"
+        class="neon-input"
+        value="{{ project.live_link }}"
+        required
+      />
+
+      <!-- GitHub Repo -->
+      <input
+        type="url"
+        name="github_link"
+        class="neon-input"
+        value="{{ project.git_link }}"
+        required
+      />
+
+      <!-- Current Image Preview -->
+      <p style="color: #aaa; font-size: 0.9rem;">Current Image:</p>
+      {% if project.image %}
+        <img
+          src="data:image/png;base64,{{ project.image|b64encode }}"
+          alt="Project Image"
+          style="max-width: 200px; border-radius: 8px; margin-bottom: 10px;"
+        />
+      {% else %}
+        <p style="color: gray;">No image uploaded</p>
+      {% endif %}
+
+      <!-- Upload New Image -->
+      <input
+        type="file"
+        name="project_image"
+        class="neon-input"
+        accept="image/*"
+      />
+
+      <!-- Submit -->
+      <button type="submit" class="neon-button">Save Changes</button>
+    </form>
+  </div>
+
+  <footer
+    style="
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px 50px;
+      color: #e0e0e0;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid #00ffff;
+      margin-top: 80px;
+    "
+  >
+    <p style="margin: 5px 0"><strong>Contact Me:</strong></p>
+    <p style="margin: 5px 0">📞 +91-8309758570</p>
+    <p style="margin: 5px 0">
+      📧
+      <a
+        href="mailto:yajathkandregula@gmail.com"
+        style="color: #00ffff; text-decoration: none"
+        >yajathkandregula@gmail.com</a
+      >
+    </p>
+    <p style="margin: 15px 0 0; font-size: 0.85rem; color: #aaaaaa">
+      Designed and developed by Yajath Kandregula
+    </p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    toggle.addEventListener("click", () => {
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    window.addEventListener("click", function (e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+
+    // Back button redirect
+    document.getElementById("backButton").addEventListener("click", () => {
+      window.location.href = "{{ url_for('self_app.edit_projects') }}";
+    });
+  </script>
+</body>
+</html>
