@@ -4,6 +4,7 @@ from werkzeug.security import check_password_hash
 import base64
 from io import BytesIO
 import os
+from base64 import b64encode
 
 
 from self.models import Projects, Certifications, Work, Skills, Resume, Education
@@ -219,6 +220,125 @@ def download_resume():
             download_name='Yajath_Kandregula_Resume.pdf'
         )
     return "Resume not available", 404
+
+
+@self_app.route('/edit_projects', methods=['GET'])
+def edit_projects():
+    if not session.get('admin'):
+        return redirect(url_for('self_app.index'))
+
+    projects = Projects.query.order_by(Projects.project_id.desc()).all()  # adjust ID field
+    return render_template('edit_projects.html', projects=projects)
+
+
+@self_app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
+def edit_single_project(project_id):
+    if not session.get('admin'):
+        return redirect(url_for('self_app.index'))
+
+    project = Projects.query.get_or_404(project_id)
+
+    if request.method == 'POST':
+        project.project_name = request.form.get('project_name', project.project_name)
+        project.project_description = request.form.get('description', project.project_description)
+        project.live_link = request.form.get('render_link', project.live_link)
+        project.git_link = request.form.get('github_link', project.git_link)
+
+        project_image = request.files.get('project_image')
+        if project_image and project_image.filename:
+            project.image = project_image.read()
+
+        db.session.commit()
+        return redirect(url_for('self_app.edit_projects'))
+
+    return render_template('edit_single_project.html', project=project)
+
+
+@self_app.route('/edit_skills', methods=['GET'])
+def edit_skills():
+    if session.get('admin'):
+        skills = Skills.query.all()
+        return render_template('edit_skills.html', skills=skills)
+    return redirect(url_for('self_app.index'))
+
+
+@self_app.route('/edit_skill/<int:skill_id>', methods=['GET', 'POST'])
+def edit_single_skill(skill_id):
+    if session.get('admin'):
+        skill = Skills.query.get_or_404(skill_id)
+        if request.method == 'POST':
+            skill.skill_name = request.form.get('skill_name')
+            skill.skill_type = request.form.get('skill_type')
+
+            skill_image = request.files.get('skill_image')
+            if skill_image and skill_image.filename != '':
+                skill.logo = skill_image.read()
+                skill_image.seek(0)
+
+            db.session.commit()
+            return redirect(url_for('self_app.edit_skills'))  # go back to the list
+
+        return render_template('edit_single_skill.html', skill=skill)
+    return redirect(url_for('self_app.index'))
+
+
+@self_app.route('/edit_certifications', methods=['GET'])
+def edit_certifications():
+    if session.get('admin'):
+        certifications = Certifications.query.order_by(Certifications.certification_id.desc()).all()
+        return render_template('edit_certifications.html', certifications=certifications)
+    return redirect(url_for('self_app.index'))
+
+
+@self_app.route('/edit_certification/<int:cert_id>', methods=['GET', 'POST'])
+def edit_single_certification(cert_id):
+    if session.get('admin'):
+        cert = Certifications.query.get_or_404(cert_id)
+        if request.method == 'POST':
+            cert.certification_name = request.form.get('cert_name')
+            cert.certification_description = request.form.get('description')
+            cert.drive_link = request.form.get('cert_url')
+
+            certificate_file = request.files.get('certificate_file')
+            if certificate_file and certificate_file.filename != '':
+                cert.certificate = certificate_file.read()
+                certificate_file.seek(0)
+
+            db.session.commit()
+            return redirect(url_for('self_app.edit_certifications'))
+
+        return render_template('edit_single_certification.html', cert=cert)
+    return redirect(url_for('self_app.index'))
+
+
+@self_app.route('/edit_works', methods=['GET'])
+def edit_works():
+    if session.get('admin'):
+        works = Work.query.all()
+        return render_template('edit_works.html', works=works)
+    return redirect(url_for('self_app.index'))
+
+
+@self_app.route('/edit_work/<int:work_id>', methods=['GET', 'POST'])
+def edit_single_work(work_id):
+    if session.get('admin'):
+        work = Work.query.get_or_404(work_id)
+        if request.method == 'POST':
+            work.work_name = request.form.get('work_name')
+            work.work_description = request.form.get('description')
+            work.work_type = request.form.get('work_type')
+            work.drive_link = request.form.get('drive_link')
+
+            certificate_file = request.files.get('certificate')
+            if certificate_file and certificate_file.filename != '':
+                work.certificate = certificate_file.read()
+                certificate_file.seek(0)
+
+            db.session.commit()
+            return redirect(url_for('self_app.edit_works'))
+
+        return render_template('edit_single_work.html', work=work)
+    return redirect(url_for('self_app.index'))
 
 
 if __name__ == '__main__':
